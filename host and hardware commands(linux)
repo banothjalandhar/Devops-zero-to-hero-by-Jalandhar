@@ -1,0 +1,213 @@
+Understanding Network Commands in Linux
+
+In this section, we will learn how to identify the IP address of a system and understand basic network-related commands. These commands are very important when working with servers, especially in DevOps and cloud environments.
+
+
+1. hostname -i
+
+Command:
+hostname -i
+
+Example Output:
+172.31.79.254
+
+Explanation:
+
+This command is used to display the IP address of the current system.
+
+Every system has a hostname, and this command returns the IP address mapped to that hostname.
+
+In simple terms, it tells you:
+“What is the IP address of this machine?”
+
+
+2. ip addr
+
+Command:
+ip addr
+
+Explanation:
+
+This command displays complete information about all network interfaces available in the system.
+
+You will see multiple sections in the output. The most important ones are explained below.
+
+Loopback Interface (lo)
+
+This is a special interface used for internal communication within the system.
+
+Example:
+inet 127.0.0.1/8
+
+This IP address always refers to the same machine. It is mainly used for testing and internal processes.
+
+Every Linux system will have this interface.
+
+Main Network Interface (ens5)
+
+This is the actual network interface used for communication with other systems.
+
+Example:
+inet 172.31.79.254/20
+
+Breakdown of this line:
+
+inet → Indicates IPv4 address
+172.31.79.254 → IP address of the system
+/20 → Subnet mask
+
+This is usually a private IP address when working in cloud platforms like AWS.
+
+Additional Details:
+
+state UP → The network interface is active
+dynamic → IP address is assigned automatically using DHCP
+mtu 9001 → Maximum packet size
+
+
+3. ip route
+
+Command:
+ip route
+
+Explanation:
+
+This command shows how the system sends data to other networks.
+
+It defines the path that packets take to reach their destination.
+
+Default Route
+
+Example:
+default via 172.31.64.1 dev ens5
+
+Explanation:
+
+default → Used when the destination is outside the current network
+via 172.31.64.1 → The gateway through which traffic is sent
+dev ens5 → The network interface used
+
+This means that if the system does not know how to reach a destination, it will send the request to the gateway.
+
+Network Route
+
+Example:
+172.31.64.0/20 dev ens5
+
+This represents the local network range.
+
+Any system within this range can be accessed directly without using a gateway.
+
+Source IP
+
+Example:
+src 172.31.79.254
+
+This is the IP address used by your system while sending requests.
+
+
+Simple Understanding
+
+You can think of networking like this:
+
+Your IP address is like your house address.
+The gateway is like the main road.
+Routing defines how you travel from one place to another.
+
+If the destination is within your local area, you can go directly.
+If the destination is outside your area, you must use the main road (gateway).
+
+
+Additional Useful Date Commands
+
+Command:
+date
+
+Displays current date and time.
+
+Command:
+date +"%d"
+
+Displays day of the month.
+
+Command:
+date +"%m"
+
+Displays month.
+
+Command:
+date +"%y"
+
+Displays last two digits of the year.
+
+Command:
+date +"%Y"
+
+Displays full year.
+
+Command:
+date +"%H"
+
+Displays hour (24-hour format).
+
+Command:
+date +"%M"
+
+Displays minutes.
+
+Command:
+date +"%S"
+
+Displays seconds.
+
+Command:
+date +"%A"
+
+Displays full day name.
+
+Command:
+date +"%B"
+
+Displays full month name.
+
+Command:
+date +"%D"
+
+Displays date in MM/DD/YY format.
+
+Command:
+date +"%F"
+
+Displays date in YYYY-MM-DD format.
+
+Command:
+date +"%T"
+
+Displays time in HH:MM:SS format.
+
+Command:
+date -u
+
+Displays date and time in UTC.
+
+Interview Preparation
+
+If asked how to check IP address in Linux:
+
+Use:
+hostname -i
+ip addr
+
+If asked how to check routing:
+
+Use:
+ip route
+
+
+Conclusion
+
+These commands are essential for understanding system networking.
+
+They help in identifying IP addresses, analyzing network interfaces, and understanding how data flows between systems.
+
+This knowledge is very important when working with servers, cloud platforms, and DevOps tools.
