@@ -1,0 +1,514 @@
+# Linux Commands for DevOps
+
+These are some of the most commonly used Linux commands during DevOps work. Every command below includes what it does and when we use it.
+
+
+# 1. User and System Information Commands
+
+## whoami
+
+Shows the currently logged-in user.
+
+whoami
+
+
+Example Output:
+
+ec2-user
+
+
+## hostnamectl set-hostname aws
+
+Changes the system hostname to `aws`.
+
+hostnamectl set-hostname aws
+
+exec bash
+
+To verify:
+
+hostname
+
+
+## timedatectl
+
+Displays current date, time, timezone, and NTP status.
+
+timedatectl
+
+
+Example Output:
+
+Local time: Wed 2026-04-15 10:30:00 IST
+Time zone: Asia/Kolkata
+
+
+## timedatectl set-timezone Asia/Kolkata
+
+Changes the system timezone to Indian Standard Time.
+
+sudo timedatectl set-timezone Asia/Kolkata
+
+
+To verify:
+
+timedatectl
+
+
+# 2. Hardware Information Commands
+
+## cat /proc/cpuinfo
+
+Displays detailed CPU information.
+
+cat /proc/cpuinfo
+
+
+Useful to know:
+
+* Processor model
+* Number of cores
+* CPU speed
+
+
+## lscpu
+
+Displays CPU architecture and summary information in a cleaner format.
+
+lscpu
+
+
+## cat /proc/meminfo
+
+Displays detailed RAM and memory information.
+
+cat /proc/meminfo
+
+
+## free
+
+Displays available and used memory.
+
+free
+
+
+## free -m
+
+Displays memory information in MB.
+
+free -m
+
+
+## fdisk -l
+
+Displays all disk partitions available in the system.
+
+sudo fdisk -l
+
+## df -h
+
+Displays disk usage in human-readable format.
+
+df -h
+
+
+Example:
+
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       20G   10G    9G  53% /
+
+# 3. File Commands
+
+## touch file1
+
+Creates an empty file named `file1`.
+
+touch file1
+
+
+## ls
+
+Lists files and folders in the current directory.
+
+ls
+
+
+## ll
+
+Displays files in long listing format.
+
+ll
+
+
+If `ll` does not work in your system, use:
+
+ls -l
+
+## touch a b c
+
+Creates multiple files at the same time.
+
+touch a b c
+
+
+## touch file{1..7}
+
+Creates files from `file1` to `file7`.
+
+touch file{1..7}
+
+
+Files created:
+
+file1 file2 file3 file4 file5 file6 file7
+
+## rm file1
+
+Deletes the file `file1`.
+
+rm file1
+
+
+If the file is write-protected, Linux asks for confirmation before deleting.
+
+
+## rm file1 file2 file3
+
+Deletes multiple files.
+
+rm file1 file2 file3
+
+## rm -f file{1..5}
+
+Force deletes files from `file1` to `file5` without asking for confirmation.
+
+rm -f file{1..5}
+
+
+## rm -f *
+
+Deletes all files in the current directory without confirmation.
+
+rm -f *
+
+
+Be very careful while using this command.
+
+## rm -f a*
+
+Deletes all files whose names start with `a`.
+
+rm -f a*
+
+
+Example:
+
+abc.txt
+apple.txt
+aws.log
+
+
+All of the above files will be deleted.
+
+# 4. Folder Commands
+
+## mkdir aws
+
+Creates a folder named `aws`.
+
+mkdir aws
+
+
+## mkdir folder1 folder2
+
+Creates multiple folders.
+
+mkdir folder1 folder2
+
+
+## mkdir devops{1..5}
+
+Creates multiple folders using brace expansion.
+
+mkdir devops{1..5}
+
+Folders created:
+
+devops1 devops2 devops3 devops4 devops5
+
+
+## rmdir aws
+
+Deletes an empty folder.
+
+rmdir aws
+
+`rmdir` works only if the folder is empty.
+
+
+## rmdir folder1 folder2
+
+Deletes multiple empty folders.
+
+rmdir folder1 folder2
+
+
+## rmdir devops{1..5}
+
+Deletes multiple empty folders.
+
+rmdir devops{1..5}
+
+
+## rmdir *
+
+Deletes all empty folders in the current directory.
+
+rmdir *
+
+
+## rm -rf *
+
+Deletes all files and folders recursively without confirmation.
+
+rm -rf *
+
+
+⚠️ Dangerous command. Never run this command in important directories.
+
+
+# 5. Navigation Commands
+
+## pwd
+
+Shows the present working directory.
+
+pwd
+
+
+## cd foldername
+
+Moves into a folder.
+
+cd folder1
+
+
+## cd -
+
+Moves back to the previous directory.
+
+cd -
+
+
+## cd ..
+
+Moves one level up.
+
+cd ..
+
+
+## cd ../..
+
+Moves two levels up.
+
+cd ../..
+
+
+## cd ../../..
+
+Moves three levels up.
+
+cd ../../..
+
+
+# 6. Nested Folder and File Creation
+
+## mkdir -p folder1/folder2
+
+Creates parent and child folders together.
+
+mkdir -p folder1/folder2
+
+
+> The ommand `mkdir folder1/folder2` may fail if `folder1` does not exist. Using `-p` is the correct approach.
+
+
+
+## ls folder1
+
+Displays the contents inside `folder1`.
+
+ls folder1
+
+## touch folder1/aws
+
+Creates a file named `aws` inside `folder1`.
+
+touch folder1/aws
+
+
+## mkdir -p f1/f2/f3
+
+Creates multiple nested folders in a single command.
+
+mkdir -p f1/f2/f3
+
+
+# 7. Advanced Listing Commands
+
+## ll -t
+
+Displays files sorted by latest modified time.
+
+ll -t
+
+
+## ll -r
+
+Displays files in reverse order.
+
+ll -r
+
+
+## ll -a
+
+Displays all files including hidden files.
+
+ll -a
+
+## touch .aws
+
+Creates a hidden file named `.aws`.
+
+touch .aws
+
+## ll -ltr
+
+Displays files in long listing format, sorted by oldest modified time.
+
+ll -ltr
+
+
+## ll -rtl
+
+Displays files in reverse order with long listing.
+
+ll -rtl
+
+## ll --color=auto
+
+Displays files with colored output.
+
+ll --color=auto
+
+# 8. File Content Commands
+
+## cat aws
+
+Displays the content of the file `aws`.
+
+cat aws
+
+
+## cat > aws
+
+Creates a file and allows you to enter content.
+
+cat > aws
+
+Example:
+
+cat > aws
+Hello DevOps
+Welcome to Linux
+
+After typing the content, press:
+
+Ctrl + D
+
+
+to save and exit.
+
+
+## cat >> aws
+
+Appends new content to an existing file.
+
+cat >> aws
+
+Example:
+
+cat >> aws
+This line will be added to the existing file.
+
+
+Then press:
+
+Ctrl + D
+
+
+# Important Notes
+
+* `rm -rf *` is a dangerous command. Always check the current directory using `pwd` before using it.
+* `rmdir` works only for empty folders.
+* Hidden files start with `.` (dot).
+* `ll` is usually an alias for `ls -l`.
+* Use `sudo` when permission is required.
+* Always verify before deleting important files or folders.
+
+
+
+# Quick Revision Commands
+
+
+whoami
+hostnamectl set-hostname aws
+timedatectl
+sudo timedatectl set-timezone Asia/Kolkata
+cat /proc/cpuinfo
+lscpu
+cat /proc/meminfo
+free
+free -m
+sudo fdisk -l
+df -h
+touch file1
+ls
+ll
+touch a b c
+touch file{1..7}
+rm file1
+rm file1 file2 file3
+rm -f file{1..5}
+rm -f *
+rm -f a*
+mkdir aws
+mkdir folder1 folder2
+mkdir devops{1..5}
+rmdir aws
+rmdir folder1 folder2
+rmdir devops{1..5}
+rmdir *
+rm -rf *
+pwd
+cd folder1
+cd -
+cd ..
+cd ../..
+cd ../../..
+mkdir -p folder1/folder2
+ls folder1
+touch folder1/aws
+mkdir -p f1/f2/f3
+ll -t
+ll -r
+ll -a
+touch .aws
+ll -ltr
+ll -rtl
+ll --color=auto
+cat aws
+cat > aws
+cat >> aws
+
