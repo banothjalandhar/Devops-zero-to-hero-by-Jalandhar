@@ -1,206 +1,164 @@
-# Linux Commands for DevOps
+Linux Basic Commands for DevOps
 
 These are some of the most commonly used Linux commands during DevOps work. Every command below includes what it does and when we use it.
 
-
-# 1. User and System Information Commands
-
-## whoami
+1. User and System Information Commands
+whoami
 
 Shows the currently logged-in user.
 
 whoami
 
-
 Example Output:
 
 ec2-user
+hostnamectl set-hostname aws
 
-
-## hostnamectl set-hostname aws
-
-Changes the system hostname to `aws`.
+Changes the system hostname to aws.
 
 hostnamectl set-hostname aws
+
+After changing the hostname, logout and login again or run:
 
 exec bash
 
 To verify:
 
 hostname
-
-
-## timedatectl
+timedatectl
 
 Displays current date, time, timezone, and NTP status.
 
 timedatectl
 
-
 Example Output:
 
 Local time: Wed 2026-04-15 10:30:00 IST
 Time zone: Asia/Kolkata
-
-
-## timedatectl set-timezone Asia/Kolkata
+timedatectl set-timezone Asia/Kolkata
 
 Changes the system timezone to Indian Standard Time.
 
 sudo timedatectl set-timezone Asia/Kolkata
 
-
 To verify:
 
 timedatectl
-
-
-# 2. Hardware Information Commands
-
-## cat /proc/cpuinfo
+2. Hardware Information Commands
+cat /proc/cpuinfo
 
 Displays detailed CPU information.
 
 cat /proc/cpuinfo
 
-
 Useful to know:
 
-* Processor model
-* Number of cores
-* CPU speed
-
-
-## lscpu
+Processor model
+Number of cores
+CPU speed
+lscpu
 
 Displays CPU architecture and summary information in a cleaner format.
 
 lscpu
-
-
-## cat /proc/meminfo
+cat /proc/meminfo
 
 Displays detailed RAM and memory information.
 
 cat /proc/meminfo
-
-
-## free
+free
 
 Displays available and used memory.
 
 free
-
-
-## free -m
+free -m
 
 Displays memory information in MB.
 
 free -m
-
-
-## fdisk -l
+fdisk -l
 
 Displays all disk partitions available in the system.
 
 sudo fdisk -l
-
-## df -h
+df -h
 
 Displays disk usage in human-readable format.
 
 df -h
 
-
 Example:
-
 
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/xvda1       20G   10G    9G  53% /
-
-# 3. File Commands
-
-## touch file1
-
-Creates an empty file named `file1`.
-
+3. File Commands
 touch file1
 
+Creates an empty file named file1.
 
-## ls
+touch file1
+ls
 
 Lists files and folders in the current directory.
 
 ls
-
-
-## ll
+ll
 
 Displays files in long listing format.
 
 ll
 
-
-If `ll` does not work in your system, use:
+If ll does not work in your system, use:
 
 ls -l
-
-## touch a b c
+touch a b c
 
 Creates multiple files at the same time.
 
 touch a b c
-
-
-## touch file{1..7}
-
-Creates files from `file1` to `file7`.
-
 touch file{1..7}
 
+Creates files from file1 to file7.
+
+touch file{1..7}
 
 Files created:
 
 file1 file2 file3 file4 file5 file6 file7
+rm file1
 
-## rm file1
-
-Deletes the file `file1`.
+Deletes the file file1.
 
 rm file1
 
-
 If the file is write-protected, Linux asks for confirmation before deleting.
 
-
-## rm file1 file2 file3
+rm file1 file2 file3
 
 Deletes multiple files.
 
 rm file1 file2 file3
+rm -f file{1..5}
 
-## rm -f file{1..5}
-
-Force deletes files from `file1` to `file5` without asking for confirmation.
+Force deletes files from file1 to file5 without asking for confirmation.
 
 rm -f file{1..5}
 
+Note: The original command rm -f {1..5} is incorrect because filenames are missing.
 
-## rm -f *
+rm -f *
 
 Deletes all files in the current directory without confirmation.
 
 rm -f *
 
-
 Be very careful while using this command.
-
-## rm -f a*
-
-Deletes all files whose names start with `a`.
 
 rm -f a*
 
+Deletes all files whose names start with a.
+
+rm -f a*
 
 Example:
 
@@ -208,26 +166,20 @@ abc.txt
 apple.txt
 aws.log
 
-
 All of the above files will be deleted.
 
-# 4. Folder Commands
-
-## mkdir aws
-
-Creates a folder named `aws`.
-
+4. Folder Commands
 mkdir aws
 
+Creates a folder named aws.
 
-## mkdir folder1 folder2
+mkdir aws
+mkdir folder1 folder2
 
 Creates multiple folders.
 
 mkdir folder1 folder2
-
-
-## mkdir devops{1..5}
+mkdir devops{1..5}
 
 Creates multiple folders using brace expansion.
 
@@ -236,182 +188,144 @@ mkdir devops{1..5}
 Folders created:
 
 devops1 devops2 devops3 devops4 devops5
-
-
-## rmdir aws
+rmdir aws
 
 Deletes an empty folder.
 
 rmdir aws
 
-`rmdir` works only if the folder is empty.
+rmdir works only if the folder is empty.
 
-
-## rmdir folder1 folder2
+rmdir folder1 folder2
 
 Deletes multiple empty folders.
 
 rmdir folder1 folder2
-
-
-## rmdir devops{1..5}
+rmdir devops{1..5}
 
 Deletes multiple empty folders.
 
 rmdir devops{1..5}
-
-
-## rmdir *
+rmdir *
 
 Deletes all empty folders in the current directory.
 
 rmdir *
-
-
-## rm -rf *
+rm -rf *
 
 Deletes all files and folders recursively without confirmation.
 
 rm -rf *
 
-
 ⚠️ Dangerous command. Never run this command in important directories.
 
-
-# 5. Navigation Commands
-
-## pwd
+5. Navigation Commands
+pwd
 
 Shows the present working directory.
 
 pwd
-
-
-## cd foldername
+cd foldername
 
 Moves into a folder.
 
 cd folder1
-
-
-## cd -
+cd -
 
 Moves back to the previous directory.
 
 cd -
-
-
-## cd ..
+cd ..
 
 Moves one level up.
 
 cd ..
-
-
-## cd ../..
+cd ../..
 
 Moves two levels up.
 
 cd ../..
-
-
-## cd ../../..
+cd ../../..
 
 Moves three levels up.
 
 cd ../../..
-
-
-# 6. Nested Folder and File Creation
-
-## mkdir -p folder1/folder2
+6. Nested Folder and File Creation
+mkdir -p folder1/folder2
 
 Creates parent and child folders together.
 
 mkdir -p folder1/folder2
 
-
-> The ommand `mkdir folder1/folder2` may fail if `folder1` does not exist. Using `-p` is the correct approach.
-
-
-
-## ls folder1
-
-Displays the contents inside `folder1`.
+The original command mkdir folder1/folder2 may fail if folder1 does not exist. Using -p is the correct approach.
 
 ls folder1
 
-## touch folder1/aws
+Displays the contents inside folder1.
 
-Creates a file named `aws` inside `folder1`.
+ls folder1
+touch folder1/aws
+
+Creates a file named aws inside folder1.
 
 touch folder1/aws
 
+The original command had a typo: filder1/aws
 
-## mkdir -p f1/f2/f3
+mkdir -p f1/f2/f3
 
 Creates multiple nested folders in a single command.
 
 mkdir -p f1/f2/f3
-
-
-# 7. Advanced Listing Commands
-
-## ll -t
+7. Advanced Listing Commands
+ll -t
 
 Displays files sorted by latest modified time.
 
 ll -t
-
-
-## ll -r
+ll -r
 
 Displays files in reverse order.
 
 ll -r
-
-
-## ll -a
+ll -a
 
 Displays all files including hidden files.
 
 ll -a
+touch .aws
 
-## touch .aws
-
-Creates a hidden file named `.aws`.
+Creates a hidden file named .aws.
 
 touch .aws
 
-## ll -ltr
+The original command had a typo: tpuch .aws
+
+ll -ltr
 
 Displays files in long listing format, sorted by oldest modified time.
 
 ll -ltr
-
-
-## ll -rtl
+ll -rtl
 
 Displays files in reverse order with long listing.
 
 ll -rtl
-
-## ll --color=auto
+ll --color=auto
 
 Displays files with colored output.
 
 ll --color=auto
 
-# 8. File Content Commands
+The original command ll -l=ll is incorrect.
 
-## cat aws
-
-Displays the content of the file `aws`.
-
+8. File Content Commands
 cat aws
 
+Displays the content of the file aws.
 
-## cat > aws
+cat aws
+cat > aws
 
 Creates a file and allows you to enter content.
 
@@ -427,11 +341,9 @@ After typing the content, press:
 
 Ctrl + D
 
-
 to save and exit.
 
-
-## cat >> aws
+cat >> aws
 
 Appends new content to an existing file.
 
@@ -442,26 +354,197 @@ Example:
 cat >> aws
 This line will be added to the existing file.
 
-
 Then press:
 
 Ctrl + D
+9. Copy and Move Commands
+cp source destination
 
+Copies a file from one location to another.
 
-# Important Notes
+cp source destination
 
-* `rm -rf *` is a dangerous command. Always check the current directory using `pwd` before using it.
-* `rmdir` works only for empty folders.
-* Hidden files start with `.` (dot).
-* `ll` is usually an alias for `ls -l`.
-* Use `sudo` when permission is required.
-* Always verify before deleting important files or folders.
+Example:
 
+cp file1 backup.txt
 
+This copies file1 into a new file called backup.txt.
 
-# Quick Revision Commands
+To copy a file into a folder:
 
+cp file1 folder1/
+cp -r source_folder destination_folder
 
+Copies a folder and all its contents.
+
+cp -r folder1 folder2
+
+-r means recursive.
+
+mv source destination
+
+Moves or renames a file or folder.
+
+mv source destination
+
+Example 1: Rename a file
+
+mv file1 file2
+
+This renames file1 to file2.
+
+Example 2: Move a file into a folder
+
+mv file1 folder1/
+mv file1 file2 folder/
+
+Moves multiple files into a folder.
+
+mv file1 file2 folder1/
+
+The original command mv file1,file2 folder/ is incorrect because Linux commands use spaces, not commas.
+
+10. File Reading Commands
+cat file1 file2
+
+Displays the contents of multiple files together.
+
+cat file1 file2
+
+The content of file1 will be shown first, followed by file2.
+
+cat -n filename
+
+Displays file content with line numbers.
+
+cat -n filename
+
+Example:
+
+cat -n aws
+tac filename
+
+Displays the file content in reverse line order.
+
+tac filename
+
+If a file contains:
+
+Line1
+Line2
+Line3
+
+Output:
+
+Line3
+Line2
+Line1
+rev filename
+
+Displays each line of the file in reverse.
+
+rev filename
+
+Example:
+
+Hello
+World
+
+Output:
+
+olleH
+dlroW
+head filename
+
+Displays the first 10 lines of a file.
+
+head filename
+
+Example:
+
+head aws
+
+To display only the first 5 lines:
+
+head -5 aws
+tail filename
+
+Displays the last 10 lines of a file.
+
+tail filename
+
+Example:
+
+tail aws
+
+To display only the last 5 lines:
+
+tail -5 aws
+sed -n '17p' filename
+
+Displays only the 17th line of a file.
+
+sed -n '17p' filename
+
+Example:
+
+sed -n '17p' aws
+
+-n means do not print all lines.
+17p means print only line number 17.
+
+11. Word Count Commands
+wc filename
+
+Displays line count, word count, and character count.
+
+wc filename
+
+Example Output:
+
+10 25 150 aws
+
+This means:
+
+10 lines
+25 words
+150 characters
+wc -l filename
+
+Displays only the number of lines.
+
+wc -l filename
+wc -w filename
+
+Displays only the number of words.
+
+wc -w filename
+wc -c filename
+
+Displays only the number of characters or bytes.
+
+wc -c filename
+12. Useful Keyboard Shortcuts in Linux Terminal
+Ctrl + U
+
+Deletes everything from the cursor position to the beginning of the line.
+
+Ctrl + A
+
+Moves the cursor to the beginning of the line.
+
+Ctrl + E
+
+Moves the cursor to the end of the line.
+
+Important Notes
+rm -rf * is a dangerous command. Always check the current directory using pwd before using it.
+rmdir works only for empty folders.
+Hidden files start with . (dot).
+ll is usually an alias for ls -l.
+Use sudo when permission is required.
+Always verify before deleting important files or folders.
+Quick Revision Commands
 whoami
 hostnamectl set-hostname aws
 timedatectl
@@ -511,4 +594,3 @@ ll --color=auto
 cat aws
 cat > aws
 cat >> aws
-
