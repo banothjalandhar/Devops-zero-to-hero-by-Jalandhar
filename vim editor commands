@@ -1,0 +1,155 @@
+Vim Editor Commands for DevOps
+
+These are some of the most commonly used Vim editor commands during DevOps work. Every command below includes what it does and when we use it.
+
+Navigation CommandsG
+
+Moves the cursor to the last line of the file.
+
+G
+
+Moves the cursor to the first line of the file.
+
+gg
+
+Moves the cursor to line number 3.
+
+3gg
+
+Moves the cursor to line number 10.
+
+10gg
+
+
+Moves the cursor to the middle of the screen.
+
+M
+
+Moves to line number 4.
+
+:4
+
+Moves to line number 9.
+
+:9
+
+Copy Commands
+
+Copies the current line.
+
+yy
+
+
+Copies 5 lines starting from the current line.
+
+5yy
+
+Paste Commandsp
+
+Pastes the copied content below the current line.
+
+p
+
+Pastes the copied content 10 times.
+
+10p
+
+Delete Commands3dd
+
+Deletes 3 lines.
+
+3dd
+
+
+Deletes 5 lines.
+
+5dd
+
+Undo and Redo Commands
+
+Undo the last action.
+
+u
+
+
+Redo the last undone action.
+
+Ctrl + r
+
+Search Commands/folder
+
+Searches forward for the word "folder".
+
+/folder
+  
+Searches backward for the word "folder".
+
+?folder
+
+Replace Commands:
+
+Replaces the first occurrence of "folder" with "aws" in each line.
+
+:%s/folder/aws
+
+Replaces all occurrences of "folder" with "aws" in the entire file.
+
+:%s/folder/aws/g
+
+Insert Mode Commandsinsert mode
+
+Vim has different modes. Insert mode is used to type text.
+
+Enters insert mode before the cursor.
+
+i
+
+Enters insert mode at the end of the line.
+
+A
+
+
+Enters insert mode at the beginning of the line.
+
+I
+
+
+Opens a new line below and enters insert mode.
+
+o
+
+
+Opens a new line above and enters insert mode.
+
+O
+
+
+Exits insert mode.
+
+esc
+
+Save and Quit Commands:W
+
+Saves the file.
+
+:w
+
+Quits the editor.
+
+:q
+
+Quits without saving changes.
+
+:q!
+
+Forces save.
+
+:w!
+
+Saves and quits.
+
+:wq
+  
+Forces save and quit.
+
+:wq!
