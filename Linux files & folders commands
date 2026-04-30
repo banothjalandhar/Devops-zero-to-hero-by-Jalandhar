@@ -537,6 +537,7 @@ Ctrl + E
 
 Moves the cursor to the end of the line.
 
+
 Important Notes
 rm -rf * is a dangerous command. Always check the current directory using pwd before using it.
 rmdir works only for empty folders.
@@ -594,3 +595,12 @@ ll --color=auto
 cat aws
 cat > aws
 cat >> aws
+wc file1
+wc hellofile1
+wc -l file1
+wc -w file1
+wc -c file1
+
+Ctrl + U
+Ctrl + A
+Ctrl + E
