@@ -1,0 +1,116 @@
+Grep and Find Commands for DevOps
+
+These are some of the most commonly used search commands during DevOps work. Every command below includes what it does and when we use it.
+
+Grep Commands
+
+grep "word" filename
+Searches for a word in a file.
+
+grep -n "word" filename
+Displays matching lines along with line numbers.
+
+grep -c "word" filename
+Displays count of matching lines.
+
+grep -i "word" filename
+Searches ignoring case (case-insensitive).
+
+grep -v "word" filename
+Displays lines that do NOT contain the word.
+
+grep -e "w1" -e "w2" -e "w3" filename
+Searches for multiple words in a file.
+
+grep "w1" file1 file2
+Searches a word in multiple files.
+
+grep -e "w1" -e "w2" -e "w3" file1 file2
+Searches multiple words in multiple files.
+
+grep -r "word" .
+Searches recursively in current directory.
+
+grep -rn "word" .
+Recursive search with line numbers.
+
+grep -l "word" filename
+Displays only file names containing the word.
+
+grep -w "word" filename
+Matches exact word only.
+
+grep -o "word" filename
+Displays only matched word.
+
+grep --color "word" filename
+Highlights matching text.
+
+Find Commands
+
+find . -name file1
+Finds file named file1 in current directory.
+
+find /etc -name passwd
+Finds passwd file inside /etc directory.
+
+find . -user username
+Finds files owned by a user.
+
+find . -group groupname
+Finds files belonging to a group.
+
+find . -perm 777
+Finds files with 777 permissions.
+
+find . -type f
+Finds only files.
+
+find . -type d
+Finds only directories.
+
+find . -size +10M
+Finds files greater than 10MB.
+
+find . -size -1M
+Finds files less than 1MB.
+
+find . -empty
+Finds empty files and folders.
+
+find . -mtime -1
+Finds files modified in last 1 day.
+
+find . -exec rm -rf {} ;
+Deletes found files (use carefully).
+
+Locate Command
+
+locate filename
+Finds file quickly using database.
+
+updatedb
+Updates locate database.
+
+Important Notes
+
+grep is used for searching content inside files
+find is used for searching files and directories
+locate is faster but depends on database
+use -r in grep for recursive search
+use find carefully when deleting files
+permissions and ownership can be filtered using find
+
+Quick Revision Commands
+
+grep "word" filename
+grep -n "word" filename
+grep -c "word" filename
+grep -i "word" filename
+grep -r "word" .
+find . -name file1
+find /etc -name passwd
+find . -user username
+find . -group groupname
+find . -perm 777
+locate filename
