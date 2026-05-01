@@ -1,0 +1,229 @@
+Git Commands for DevOps
+
+These are some of the most commonly used Git commands during DevOps work. Every command below includes what it does and when we use it.
+
+Git Definition
+
+Git is a distributed version control system used to track changes in source code and collaborate with multiple developers.
+
+Git History
+
+Git was created by Linus Torvalds in 2005 for managing Linux kernel development. It is fast, distributed, and widely used in modern DevOps workflows.
+
+Git Workflow
+
+Working Directory → Staging Area → Repository
+
+Working Directory
+Where you create and modify files.
+
+Staging Area
+Where files are prepared before committing.
+
+Repository
+Where final changes are stored permanently.
+
+Installation Command
+
+yum install git -y
+Installs Git on Linux system automatically without asking for confirmation.
+
+Repository Initialization
+
+git init
+Initializes a new Git repository in current directory.
+
+Adding Files
+
+git add .
+Adds all files to staging area.
+
+git add file1
+Adds a specific file.
+
+git add file1 file2
+Adds multiple files.
+
+Checking Status
+
+git status
+Shows current status of files (modified, staged, untracked).
+
+Commit Commands
+
+git commit -m "message" file1
+Commits a specific file with a message.
+
+git commit -m "message" file1 file2
+Commits multiple files.
+
+git commit -m "message" .
+Commits all staged files.
+
+Viewing History
+
+git log
+Displays detailed commit history.
+
+git log --oneline
+Displays commits in short format.
+
+git log --pretty=oneline
+Displays each commit in a single line.
+
+git log -2
+Shows last 2 commits.
+
+git log --follow --all
+Tracks history across all branches and file changes.
+
+git show commitid
+Shows details of a specific commit.
+
+git show commitid --stat
+Shows commit details with file changes summary.
+
+git show <commit-id>
+Displays changes introduced in that commit.
+
+Version Information
+
+git --version
+Displays installed Git version.
+
+Configuration Commands
+
+git config user.name "username"
+Sets Git username.
+
+git config user.email "emailid"
+Sets Git email.
+
+git config --list
+Displays all Git configurations.
+
+Removing Files
+
+git rm --cached file1
+Removes file from staging area but keeps it in working directory.
+
+git rm file1
+Removes file from both staging and working directory.
+
+git rm --cached *.txt
+Removes all .txt files from staging.
+
+.gitignore File
+
+.gitignore
+Used to ignore files and folders from being tracked by Git.
+
+Example:
+
+*.log → ignores all log files
+node_modules/ → ignores folder
+*.env → ignores environment files
+
+git add -f file1
+Forces Git to add ignored files.
+
+Amend Commands
+
+git commit --amend -m "message"
+Modifies last commit message.
+
+git commit --amend --author="username <email>"
+Changes author of last commit.
+
+Amend Explanation
+
+Amend is used to modify the most recent commit without creating a new commit.
+Useful for fixing commit message or adding missed changes.
+
+Branch Commands
+
+git branch
+Lists all branches.
+
+git branch branchname
+Creates a new branch.
+
+git checkout branchname
+Switches to another branch.
+
+git checkout -b branchname
+Creates and switches to a new branch.
+
+git branch -d branchname
+Deletes a branch.
+
+Merge Commands
+
+git merge branchname
+Merges branch into current branch.
+
+Remote Repository Commands
+
+git remote add origin url
+Adds remote repository.
+
+git remote -v
+Displays remote repositories.
+
+git push origin main
+Pushes code to remote repository.
+
+git pull origin main
+Fetches and merges changes from remote.
+
+git clone url
+Clones a repository.
+
+Difference Commands
+
+git diff
+Shows differences between files.
+
+git diff --staged
+Shows staged changes.
+
+Undo Commands
+
+git restore file1
+Restores file to last committed state.
+
+git reset file1
+Unstages file.
+
+git reset --hard
+Resets everything (use carefully).
+
+Important Notes
+
+Git tracks changes, not files
+Always use meaningful commit messages
+.gitignore helps avoid unnecessary files
+Use amend only for last commit
+Avoid force push in shared repositories
+Check status before commit
+
+Quick Revision Commands
+
+git init
+git add .
+git add file1
+git status
+git commit -m "message"
+git log
+git log --oneline
+git show commitid
+git config user.name "username"
+git config user.email "emailid"
+git rm --cached file1
+git add -f file1
+git commit --amend -m "message"
+git branch
+git checkout -b branchname
+git merge branchname
+git push origin main
+git pull origin main
