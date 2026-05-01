@@ -2,154 +2,198 @@ Vim Editor Commands for DevOps
 
 These are some of the most commonly used Vim editor commands during DevOps work. Every command below includes what it does and when we use it.
 
-Navigation CommandsG
-
-Moves the cursor to the last line of the file.
+Navigation Commands
 
 G
-
-Moves the cursor to the first line of the file.
+Moves the cursor to the last line of the file.
 
 gg
-
-Moves the cursor to line number 3.
+Moves the cursor to the first line of the file.
 
 3gg
-
-Moves the cursor to line number 10.
+Moves the cursor to line number 3.
 
 10gg
-
-
-Moves the cursor to the middle of the screen.
+Moves the cursor to line number 10.
 
 M
-
-Moves to line number 4.
+Moves the cursor to the middle of the screen.
 
 :4
-
-Moves to line number 9.
+Moves to line number 4.
 
 :9
+Moves to line number 9.
 
 Copy Commands
 
+yy
 Copies the current line.
 
-yy
-
-
+5yy
 Copies 5 lines starting from the current line.
 
-5yy
-
-Paste Commandsp
-
-Pastes the copied content below the current line.
+Paste Commands
 
 p
-
-Pastes the copied content 10 times.
+Pastes the copied content below the current line.
 
 10p
+Pastes the copied content 10 times.
 
-Delete Commands3dd
-
-Deletes 3 lines.
+Delete Commands
 
 3dd
-
-
-Deletes 5 lines.
+Deletes 3 lines.
 
 5dd
+Deletes 5 lines.
 
 Undo and Redo Commands
 
+u
 Undo the last action.
 
-u
-
-
+Ctrl + r
 Redo the last undone action.
 
-Ctrl + r
-
-Search Commands/folder
-
-Searches forward for the word "folder".
+Search Commands
 
 /folder
-  
-Searches backward for the word "folder".
+Searches forward for the word "folder".
 
 ?folder
+Searches backward for the word "folder".
 
-Replace Commands:
+n
+Moves to next search result.
 
-Replaces the first occurrence of "folder" with "aws" in each line.
+N
+Moves to previous search result.
+
+Replace Commands
 
 :%s/folder/aws
-
-Replaces all occurrences of "folder" with "aws" in the entire file.
+Replaces the first occurrence of "folder" with "aws" in each line.
 
 :%s/folder/aws/g
+Replaces all occurrences of "folder" with "aws" in the entire file.
 
-Insert Mode Commandsinsert mode
+:%s/folder/aws/gc
+Replaces with confirmation for each occurrence.
 
+Insert Mode Commands
+
+insert mode
 Vim has different modes. Insert mode is used to type text.
 
+i
 Enters insert mode before the cursor.
 
-i
-
+A
 Enters insert mode at the end of the line.
 
-A
-
-
+I
 Enters insert mode at the beginning of the line.
 
-I
-
-
+o
 Opens a new line below and enters insert mode.
 
-o
-
-
+O
 Opens a new line above and enters insert mode.
 
-O
-
-
+esc
 Exits insert mode.
 
-esc
-
-Save and Quit Commands:W
-
-Saves the file.
+Save and Quit Commands
 
 :w
-
-Quits the editor.
+Saves the file.
 
 :q
-
-Quits without saving changes.
+Quits the editor.
 
 :q!
-
-Forces save.
+Quits without saving changes.
 
 :w!
-
-Saves and quits.
+Forces save.
 
 :wq
-  
-Forces save and quit.
+Saves and quits.
 
 :wq!
+Forces save and quit.
+
+ZZ
+Saves and quits (shortcut).
+
+ZQ
+Quits without saving (shortcut).
+
+File Open Commands
+
+vim file1
+Opens file1 in Vim editor.
+
+vim -o file1 file2
+Opens file1 and file2 in horizontal split.
+
+vim -O file1 file2
+Opens file1 and file2 in vertical split.
+
+Split Navigation Commands
+
+Ctrl + w w
+Switch between split windows.
+
+Ctrl + w h
+Move to left split.
+
+Ctrl + w l
+Move to right split.
+
+Ctrl + w q
+Close current split window.
+
+Visual Mode Commands
+
+v
+Starts visual mode.
+
+V
+Starts line-wise visual mode.
+
+y
+Copies selected text.
+
+d
+Deletes selected text.
+
+Additional Useful Commands
+
+:set number
+Shows line numbers.
+
+:set nonumber
+Hides line numbers.
+
+:set nu
+Shortcut to enable line numbers.
+
+:set paste
+Enables paste mode.
+
+:set nopaste
+Disables paste mode.
+
+Encryption Commands
+
+gpg -c file1
+Encrypts file1 with a password.
+
+gpg -d file1
+Decrypts file1.
+
+gpg -d file1.gpg
+Decrypts encrypted file.
