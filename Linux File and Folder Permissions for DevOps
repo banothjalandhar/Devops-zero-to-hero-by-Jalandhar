@@ -1,0 +1,181 @@
+Linux File and Folder Permissions for DevOps
+
+These are some of the most commonly used file and folder permission commands during DevOps work. Every command below includes what it does and when we use it.
+
+Permission Basics
+
+rwxrw-r-x file1
+Represents file permissions.
+
+Breakdown:
+
+r = read = 4
+w = write = 2
+x = execute = 1
+
+= no permission
+
+Total permissions = 9 (3 for user, 3 for group, 3 for others)
+
+Example:
+
+rwx rw- r-x
+user group others
+
+Full Permission
+
+777
+Gives full permissions (read, write, execute) to user, group, and others.
+
+755
+User has full permissions, group and others have read and execute.
+
+644
+User has read and write, others have only read.
+
+chmod Commands
+
+chmod 777 file1
+Gives full permission to file1.
+
+chmod 777 folder1
+Gives full permission to folder1.
+
+chmod 777 folder1/*
+Gives full permission to all files inside folder1.
+
+chmod +x file1
+Adds execute permission to file.
+
+chmod -x file1
+Removes execute permission.
+
+chmod u+x file1
+Adds execute permission only to user.
+
+chmod g+w file1
+Adds write permission to group.
+
+chmod o-r file1
+Removes read permission from others.
+
+chmod 755 file1
+Sets permission using numeric method.
+
+Ownership Commands
+
+chown username file1
+Changes owner of file.
+
+chown username:groupname file1
+Changes owner and group of file.
+
+chown username:groupname *
+Changes owner and group for all files in directory.
+
+chgrp groupname file1
+Changes group of file.
+
+chown -R username:groupname folder1
+Changes ownership recursively for folder.
+
+Ownership Format
+
+root root
+First root → user (owner)
+Second root → group
+
+User Management Commands
+
+cat /etc/passwd
+Displays all users in the system.
+
+id username
+Displays user ID, group ID, and groups.
+
+Example:
+
+id devuser
+
+Output:
+
+uid=1001(devuser) gid=1001(devuser) groups=1001(devuser)
+
+Explanation:
+
+uid → user ID
+gid → group ID
+groups → groups user belongs to
+
+useradd devuser
+Creates a new user.
+
+When a user is created, a group is also created automatically with the same name.
+
+su - devuser
+Switches to another user.
+
+passwd devuser
+Sets or changes password for user.
+
+Password Rules
+
+Password should be strong
+Use uppercase, lowercase, numbers, and symbols
+Minimum 8 characters recommended
+
+userdel -r devuser
+Deletes user and its home directory.
+
+Group Management Commands
+
+cat /etc/group
+Displays all groups in the system.
+
+groupadd devgroup
+Creates a new group.
+
+groupdel devgroup
+Deletes a group.
+
+File Permission Check
+
+ls -l
+Displays file permissions, owner, and group.
+
+Example Output:
+
+-rwxr-xr-x 1 root root file1
+
+Explanation:
+
+→ file type
+rwx → user permissions
+r-x → group permissions
+r-x → others permissions
+Important Notes
+
+User has highest priority, then group, then others
+Always use correct permissions for security
+Avoid using 777 in production environments
+Use -R carefully (recursive changes)
+Every file has an owner and a group
+
+Quick Revision Commands
+
+chmod 777 file1
+chmod 755 file1
+chmod +x file1
+chown username file1
+chown username:groupname file1
+chgrp groupname file1
+useradd devuser
+passwd devuser
+su - devuser
+userdel -r devuser
+id devuser
+cat /etc/passwd
+cat /etc/group
+groupadd devgroup
+groupdel devgroup
+ls -l
